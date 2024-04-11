@@ -1,0 +1,14 @@
+use("platzi_store")
+
+db.inventory.updateMany(
+  // query - operators
+  //SELECCIONAR LOS QUE NO SEAN 20
+  { qty: { $ne: 20 } },
+  // update - operators
+  {
+    //INCREMENTAR SU VALOR EN 10
+    $inc: {
+      qty: 10
+    }
+  }
+)

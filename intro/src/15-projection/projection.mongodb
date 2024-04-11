@@ -1,0 +1,10 @@
+use("sample_training")
+
+db.trips.find(
+  // query
+  { tripduration: { $gte: 500 } },
+  // projection
+  { tripduration: 1, usertype: 1 }
+)
+//en 0 en projection es para excluir 
+//nose uede usar en conjunto 1 y 0 , salvo 0 para _id

@@ -1,0 +1,3 @@
+use("z_store")
+
+db.products.find()

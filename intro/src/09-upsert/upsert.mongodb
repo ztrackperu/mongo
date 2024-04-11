@@ -1,0 +1,16 @@
+use("platzi_store")
+//forma de mongo de actualizar o insertar
+//los datos 
+// unsert solo funciona con
+//update One y no con Many
+db.iot.updateOne({
+  sensor: "A001",
+  date: "2022-01-04",
+}, {
+  $push: {
+    readings: 124345
+  }
+}, {
+  //valida ingresar o actualizar 
+  upsert: true
+})

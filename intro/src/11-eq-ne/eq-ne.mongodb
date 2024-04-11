@@ -1,0 +1,17 @@
+use("platzi_store")
+
+
+// Using $eq
+// el $eq viene implicito 
+// db.inventory.find({ qty: 20 })
+// de forma explicita 
+// db.inventory.find({ qty: { $eq: 20 } })
+
+//busqueda por subdocumentos item.code
+//obligado poner en comillas para navegar en subdocumentos
+// db.inventory.find({ "item.code": "123" })
+// db.inventory.find({ "item.code": { $eq: "123" } })
+
+// Using $ne
+//elemntos que NO sean igual a este elemento especifico
+db.inventory.find({ qty: { $ne: 20 } })

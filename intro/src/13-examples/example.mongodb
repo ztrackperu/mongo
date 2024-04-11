@@ -1,0 +1,28 @@
+use("platzi_store")
+
+db.iot.updateMany(
+  // query
+  { sensor: "A001" },
+  // update
+  {
+    // pull es para quitar datos de un array
+    $pull: {
+        //eliminar elementos que son mayor igual a 3
+      readings: { $gte: 3 }
+    }
+  }
+)
+
+//sample_training.trips
+//ver todo los viajes que duren menos de 60 segundos
+/*
+{
+    tripduration:
+    {
+        $lte:60
+    },
+    usertype:"Subscriber"
+    
+}
+
+*/

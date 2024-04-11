@@ -1,0 +1,51 @@
+use("platzi_store")
+
+// $in , values & arrays
+// in obtener los elementos de un array
+//sirve para objetos , array y valores especificos
+//siempre se envia un array
+//etiqueta
+// db.inventory.find({ qty: { $in: [20, 25]} })
+//array , que este book o electronics
+// db.inventory.find({ tags: { $in: ["book", "electronics"]} })
+
+// $nin , values & arrays
+//funciona como el in 
+//pero bsuca los que NO esten dentro o incluido
+// db.inventory.find({ qty: { $nin: [20, 25]} })
+//array , donde NO  este book o electronics
+// db.inventory.find({ tags: { $nin: ["book", "electronics"]} })
+
+//que pasa si busco un elemnto en un array
+// db.inventory.find({ tags: "book" })
+//quiero trae los que tienen ambos elementos 
+//exactamente en la posicion , no es lo mismo lo siguiente:
+// db.inventory.find({ tags: ["school", "book"] })
+// db.inventory.find({ tags: ["book", "school"] })
+
+
+// arrays $all
+//que contenga todo los elemntos como un "AND"
+//Aqui la pocision no importa
+// db.inventory.find({ tags: {$all: ["book", "school"]} })
+
+// $size
+// le damos un valor numerico
+//buscar por tamaño de array 
+//busca que los arrays tengan 2 elementos
+// db.inventory.find({ tags: {$size: 2} })
+
+// $elemMatch
+//para estructura con array con objetos
+//quiero buscar dentro del array productos XYZ
+// db.survey.find({ results: { $elemMatch: { product: "xyz" }} })
+
+//buscar en el objeto del array , donde el rpoducto
+//se igual a "XYZ" y el socre sea mayor igual a 7
+db.survey.find({
+  results:{
+    $elemMatch: {
+      product: "xyz",
+      score: { $gte: 7 }
+    }}
+  })

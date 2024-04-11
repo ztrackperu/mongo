@@ -1,0 +1,9 @@
+use("sample_training")
+
+//db.zips.find().count()
+
+db.zips.find(
+    {
+        city :"CLEVELAND"
+    }
+)

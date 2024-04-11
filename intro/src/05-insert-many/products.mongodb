@@ -1,0 +1,30 @@
+use("z_store")
+
+db.products.drop()
+
+db.products.insertMany([
+    {
+        _id:1,
+        name :"Products 1",
+        preci :1000
+    },
+    {
+        _id:2,
+        name :"Products 2",
+        preci :100
+    },
+    {
+        _id:1,
+        name :"Products 3",
+        preci :10
+    },
+    {
+        _id:4,
+        name :"Products 4",
+        preci :101
+    }
+],{
+    ordered:false
+})
+
+db.products.find()

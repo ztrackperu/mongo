@@ -1,0 +1,17 @@
+use("platzi_store")
+
+// db.inventory.find({ "item.description": "Single line description." })
+// buscar con $regex los que tienen la palabra line
+// db.inventory.find({ "item.description": { $regex: /line/ } })
+//para que incluye las mayuscula
+// db.inventory.find({ "item.description": { $regex: /LINE/i } })
+//busqueda de los textos que TERMINEN en line
+//para eso de debe agregar $ en  la expresion regular
+// db.inventory.find({ "item.description": { $regex: /line$/i } })
+//busqueda de los textos que INICIEN en line
+//para eso se agrega ^ en la expresion regular
+// db.inventory.find({ "item.description": { $regex: /^single/i } })
+//buscar por todo los documentos inicien con una "s"
+//y consideren los saltos de linea
+//agregar m al final de la expresion regular
+db.inventory.find({ "item.description": { $regex: /^s/im } })

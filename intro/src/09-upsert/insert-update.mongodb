@@ -1,0 +1,33 @@
+use("platzi_store")
+//contamos y con un lenguaje de 
+//programacion ya desidimos si insertar o actualizar
+db.iot.find({
+  sensor: "A001",
+  date: "2022-01-03",
+}).count()
+
+db.iot.insertOne({
+  sensor: "A001",
+  date: "2022-01-03",
+  readings: [1212]
+})
+
+// db.iot.updateOne({
+//   sensor: "A001",
+//   date: "2022-01-03",
+// }, {
+  //$pop eliminar algo desde el inicio -1 o final -1
+//   $pop: {
+//     readings: 1
+//   }
+// })
+
+db.iot.updateOne({
+  sensor: "A001",
+  date: "2022-01-03",
+}, {
+  //push para añadir elementos en un array
+  $push: {
+    readings: 2323
+  }
+})

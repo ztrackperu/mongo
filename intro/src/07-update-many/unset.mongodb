@@ -1,0 +1,18 @@
+use("sample_training")
+
+db.zips.find(
+    {city :"CLEVELAND"}
+).count()
+
+db.zips.updateMany(
+    //query
+    {city :"CLEVELAND"},
+    //updates -many
+    {
+        // elimina un campo
+        $unset:{
+            my_data:""
+        }
+    }
+
+)
