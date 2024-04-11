@@ -35,6 +35,8 @@ use("sample_training")
 
 //nor todo lo que no incluye la consulta 
 //los que estan fuera del match
+// qui esta aciendo una projeccion 
+//para mostar solo la etiqueta result
 // db.inspections.find({
 //   $nor: [
 //     { result: "No Violation Issued" },
@@ -46,6 +48,9 @@ use("sample_training")
 // })
 
 // $not = {}
+
+//operacion negacion 
+// que no sea , se utiliza en un atributo
 db.inspections.find({
   result: { $not: { $regex: /Unable to Locate/ } }
 })
