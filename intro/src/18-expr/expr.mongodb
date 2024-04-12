@@ -1,9 +1,13 @@
 use("platzi_store")
-
+// gasto mayor a 100
 // db.monthlyBudget.find({ spent: {$gte: 100} })
-
+//es un operador para seleccionar un campo expecifica
 db.monthlyBudget.find({
   $expr: {
+    //spent supera un gasto de 100
+    //comparar entre los campos de mi coleccion
+    //traeme los documentos donde 
+    //los spent sean mayores de budget
     $gte: ["$spent", "$budget"]
   }
 })

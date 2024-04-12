@@ -1,14 +1,22 @@
 use("sample_training")
-
+//consulta a subdocumento con el "."
 // db.trips.find({"start station location.type": "Point" })
 
+
 // db.companies.find({
+  //0 es la primera posicion de un array
 //   "relationships.0.person.first_name": "Mark"
-// }, {
+// }, 
+// solo mostrar name y relationships
+//{
 //   name: 1,
 //   relationships: 1
 // }).count() // 108
 
+//no solo buscar en la posicion 0 del array
+// buscar a todo los mark que esten relacionados a la compania 
+//elemMatch nos sirve navegar en todo los
+//elemtos del array
 db.companies.find({
   relationships: {
     $elemMatch: {
@@ -19,3 +27,4 @@ db.companies.find({
   name: 1,
   relationships: 1
 }).count() // 523
+

@@ -3,6 +3,8 @@ use("sample_training")
 // db.trips.find()
 // db.trips.find({
 //   $expr: {
+  // comparar la estacion de salida , con la estacion de llegada
+  //sean iguales 
 //     $eq: ["$start station id", "$end station id"]
 //   }
 // })
@@ -11,7 +13,9 @@ use("sample_training")
 db.trips.find({
   $expr: {
     $and: [
+      //cuantos an iniciado y finalizado en el mismo punto
       { $eq: ["$start station id", "$end station id"] },
+      // y que le tiempo de duracion del viaje sea mayor igual a 1200
       { $gte: ["$tripduration", 1200] }
     ]
   }

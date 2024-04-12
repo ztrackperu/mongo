@@ -1,0 +1,6 @@
+use("platzi_store")
+//skip escapar 
+db.categories
+  .find()
+  .skip(6)
+  .limit(3)

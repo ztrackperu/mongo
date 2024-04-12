@@ -8,8 +8,14 @@ use("sample_airbnb")
 // })
 
 // [], [], []
+//funciona por capas
 db.listingsAndReviews.aggregate([
   { $match: { amenities: "Wifi" } }, // find
   { $project: { address: 1 } }, // project
-  { $group: { _id: "$address.country", count: { $sum: 1 } } }
+  // realizo agrupaciones
+  //quiero el id se a agrupe por address.country
+  // en que paises hay habitaciones con wifi
+  { $group: { _id: "$address.country",
+// hacemos un conteo de esas habitaciones
+   count: { $sum: 1 } } }
 ])

@@ -1,0 +1,10 @@
+use("sample_training")
+
+// 1 = 0 - 10, A-Z
+// -1 = 10 - 0, Z-A
+db.zips
+// la densidad poblacional sea mayor igual a 100
+  .find({ pop: { $gte: 100 } })
+  //ordenamos por pop "-1" es de mayor a menor
+  .sort({ pop: -1 })
+  .limit(2)
